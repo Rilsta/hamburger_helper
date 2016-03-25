@@ -8,7 +8,10 @@ import { Food } from './food.model';
   outputs: ['onFoodSelect'],
   directives: [FoodComponent],
   template: `
-  <food-display *ngFor="#currentFood of foodList">
+  <food-display *ngFor="#currentFood of foodList"
+    (click)="foodClicked(currentFood)"
+    [class.selected]="currentFood === selectedFood"
+    [food]="currentFood">
   </food-display>
   `
 })

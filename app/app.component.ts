@@ -1,11 +1,17 @@
 import { Component } from 'angular2/core';
+import { FoodListComponent } from './food-list.component';
 import { Food } from './food.model';
 
 @Component({
   selector: 'my-app',
+  directives:[FoodListComponent],
   template: `
   <div class="container">
-    <h1>Skeleton Angular2 App!</h1>
+    <h1>Hamburger Helpr</h1>
+    <food-list
+      [foodList]="foods"
+      (onFoodSelect)="foodSelected($event)">
+    </food-list>
   </div>
   `
 })
