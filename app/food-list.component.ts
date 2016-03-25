@@ -1,5 +1,6 @@
 import { Component, EventEmitter } from 'angular2/core';
-import { FoodComponent } from './food.component'
+import { FoodComponent } from './food.component';
+import { NewFoodComponent } from './new-food.component';
 import { HealthPipe } from './health.pipe';
 import { Food } from './food.model';
 
@@ -7,7 +8,7 @@ import { Food } from './food.model';
   selector: 'food-list',
   inputs: ['foodList'],
   outputs: ['onFoodSelect'],
-  directives: [FoodComponent],
+  directives: [FoodComponent, NewFoodComponent],
   pipes: [HealthPipe],
   template: `
   <select (change)="onChange($event.target.value)">
