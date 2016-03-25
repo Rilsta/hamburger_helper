@@ -1,3 +1,13 @@
 .selected{
   color: indianred;
+  display: inline;
+}
+
+.selected p{
+  color: indianred;
+  display: block;
+}
+
+p{
+  display: none;
 }

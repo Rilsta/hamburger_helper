@@ -25,6 +25,6 @@ export class AppComponent {
     ];
   }
   foodSelected(clickedFood: Food): void{
-    console.log(clickedFood)
+    console.log([clickedFood.details, clickedFood.calories])
   }
 }

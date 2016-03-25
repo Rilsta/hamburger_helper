@@ -6,13 +6,20 @@ import { Food } from './food.model';
   selector: 'food-list',
   inputs: ['foodList'],
   outputs: ['onFoodSelect'],
-  directives: [FoodComponent],
+  directives: [FoodComponent], [HealthPipe],
   template: `
+  <select>
+    <option value="all">Show All Foods</option>
+    <option value="healthy">Show Healthy Foods</option>
+    <option value="unHealthy">Show Unhealthy Foods</option>
+  </select>
+
   <food-display *ngFor="#currentFood of foodList"
     (click)="foodClicked(currentFood)"
     [class.selected]="currentFood === selectedFood"
     [food]="currentFood">
   </food-display>
+
   `
 })
 
