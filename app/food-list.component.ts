@@ -1,6 +1,7 @@
 import { Component, EventEmitter } from 'angular2/core';
 import { FoodComponent } from './food.component';
 import { NewFoodComponent } from './new-food.component';
+import { EditFoodComponent } from './edit-food.component';
 import { HealthPipe } from './health.pipe';
 import { Food } from './food.model';
 
@@ -8,7 +9,7 @@ import { Food } from './food.model';
   selector: 'food-list',
   inputs: ['foodList'],
   outputs: ['onFoodSelect'],
-  directives: [FoodComponent, NewFoodComponent],
+  directives: [FoodComponent, NewFoodComponent, EditFoodComponent],
   pipes: [HealthPipe],
   template: `
   <select (change)="onChange($event.target.value)">
@@ -22,6 +23,9 @@ import { Food } from './food.model';
     [class.selected]="currentFood === selectedFood"
     [food]="currentFood">
   </food-display>
+
+  <edit-food *ngIf="selectedFood" [food]="selectedFood">
+  </edit-food>
 
   <new-food
   (onSubmitNewFood)="createFood($event)">
@@ -44,8 +48,8 @@ export class FoodListComponent {
   }
   createFood([name, calories, details]): void{
     this.foodList.push(
-      new Food(name, calories, details);
-    )
+      new Food(name, calories, details)
+    );
   }
   onChange(filterOption) {
     this.filterHealth = filterOption;
