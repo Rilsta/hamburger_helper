@@ -1,4 +1,5 @@
 import { Component } from 'angular2/core';
+import { Food } from './food.model';
 
 @Component({
   selector: 'my-app',
@@ -9,5 +10,5 @@ import { Component } from 'angular2/core';
   `
 })
 export class AppComponent{
-  
+
 }
