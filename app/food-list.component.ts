@@ -23,7 +23,8 @@ import { Food } from './food.model';
     [food]="currentFood">
   </food-display>
 
-  <new-food>
+  <new-food
+  (onSubmitNewFood)="createFood($event)">
   </new-food>
 
   `
@@ -40,6 +41,11 @@ export class FoodListComponent {
   foodClicked(clickedFood: Food): void {
     this.selectedFood = clickedFood;
     this.onFoodSelect.emit(clickedFood);
+  }
+  createFood([name, calories, details]): void{
+    this.foodList.push(
+      new Food(name, calories, details);
+    )
   }
   onChange(filterOption) {
     this.filterHealth = filterOption;
