@@ -23,6 +23,9 @@ import { Food } from './food.model';
     [food]="currentFood">
   </food-display>
 
+  <new-food>
+  </new-food>
+
   `
 })
 
